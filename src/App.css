@@ -26,5 +26,11 @@ button{
 }
 p{
   text-align: center;
-  font-size: 100px;
+  font-size: 90px;
+}
+.code{
+  text-align: center;
+  margin: 2%;
+  color: #0078FF;
+  font-size: 250px;
 }
