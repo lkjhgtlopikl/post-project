@@ -8,7 +8,7 @@ export default function Code({ cS,num }) {
         setActiveComponent(null);
     };
     return (
-        <div>
+        <>
             {activeComponent != null ? (
                 <body>
                     <p>Ваш номер в очереди:</p>
@@ -16,6 +16,6 @@ export default function Code({ cS,num }) {
                     </div>
                     <Button onClick={handleSendNullClick} text={"На главную"}></Button>
                 </body>) : < Main/>}
-        </div>
+        </>
     );
 }

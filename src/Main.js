@@ -28,7 +28,6 @@ function Main() {
           <Header>Выберите услугу</Header>
           <div className='buttons'>
             {btn.map(b => <Button{...b} onClick={handleSendCodeClick} key={b.id}/>)}
-
           </div>
         </body>
       ) : (
