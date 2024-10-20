@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputField from './InputField'; // Импортируем компонент InputField
 import Message from './Message'; // Импортируем компонент Message
 import './LoginForm.css'; // Убедитесь, что путь к вашему CSS файлу правильный
+import CryptoJS from 'crypto-js';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -12,14 +13,24 @@ const LoginForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault(); // Предотвращаем отправку формы
 
-        // Пример проверки (здесь можно добавить свою логику)
-        if (username === 'admin' && password === 'password') {
-            setMessage('Успешный вход!');
-            setMessageColor('#00A1FF');
-        } else {
-            setMessage('Неверный логин или пароль.');
-            setMessageColor('#FF0000');
-        }
+        const encryptedData = CryptoJS.AES.encrypt(password, 'pAssW0rd_').toString();
+
+        fetch('http://109.254.29.154:8000/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                login: login,
+                data: encryptedData
+            })
+            }).then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+        });
     };
 
     return (

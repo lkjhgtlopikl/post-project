@@ -1,15 +1,13 @@
 import Header from './components/Header';
 import React, { useState } from 'react';
 import Button from './components/Button';
-import App from './App';
+import Main from './Main';
 export default function Code({ cS,num }) {
-    let number = 1
     const [activeComponent, setActiveComponent] = useState("Code");
     const handleSendNullClick = (e) => {
         setActiveComponent(null);
     };
     return (
-
         <div>
             {activeComponent != null ? (
                 <body>
@@ -17,7 +15,7 @@ export default function Code({ cS,num }) {
                     <div className='code' >{cS+num}
                     </div>
                     <Button onClick={handleSendNullClick} text={"На главную"}></Button>
-                </body>) : <App />}
+                </body>) : < Main/>}
         </div>
     );
 }
