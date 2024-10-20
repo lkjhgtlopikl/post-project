@@ -3,7 +3,7 @@ h1{
   font-size: 40px;
 }
 body{
-  height: 1080px;
+  flex-direction: column;
   box-sizing: border-box;
   align-items: center;
 }
